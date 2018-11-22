@@ -37,7 +37,7 @@ print("popular apps:", len(np_ratings[popular_apps]))
 percent_popular = len(np_ratings[popular_apps]) / len(np_ratings) * 100
 print(percent_popular)
 
-unpopular_apps = np_ratings < 4
+unpopular_apps = np_ratings < 2
 print("unpopular apps:", len(np_ratings[unpopular_apps]))
 
 percent_unpopular = len(np_ratings[unpopular_apps]) / len(np_ratings) * 100
@@ -48,11 +48,11 @@ print(kinda_popular)
 
 # do a visualization with our shiny new data
 labels = "Sucks", "Meh", "Love it"
-sizes = [unpopular_apps, kinda_popular, percent_popular]
+sizes = [percent_unpopular, kinda_popular, percent_popular]
 colors = ["darkgreen", "green", "yellow"]
 explode = (0.1, 0.1, 0.15)
 
-plt.pie(sizes, explode=explode, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+plt.pie(sizes, explode=explode, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140) #  the problem is here somewher
 
 plt.axis('equal')
 plt.legend(labels, loc=1)
